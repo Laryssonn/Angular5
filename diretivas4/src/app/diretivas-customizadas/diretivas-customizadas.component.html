@@ -1,0 +1,21 @@
+<p fundoAmarelo>
+  Texto com fundo amarelo
+</p>
+<button fundoAmarelo >Botão</button>
+
+
+<p highlightMouse>
+  Texto com highlight quando passo o mouse
+</p>
+<p [highlight]="'red'" [defaultColor]="'gray'">
+  Texto com highlight com cores customizadas
+</p>
+
+<div *ngIf="mostrarCursos" >
+  Lista de Cursos
+</div>
+<div *ngElse="mostrarCursos" >
+ Cursos não cadastrados
+</div>
+<br>
+<button class="btn btn-primary" (click)="mudarValor()">Mudar</button>

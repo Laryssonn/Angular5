@@ -1,0 +1,30 @@
+<h5>*ngIf </h5>
+
+<div *ngIf="cursos.length > 0" >
+    Lista de Cursos
+</div>
+<div *ngIf="cursos.length == 0" >
+    Cursos não cadastrados
+</div>
+
+<div *ngIf="mostrarCursos" >
+  Lista de Cursos
+</div>
+<div *ngIf="!mostrarCursos" >
+ Cursos não cadastrados
+</div>
+<br>
+<button class="btn btn-primary" (click)="mudarValor()">Mudar</button>
+<h5>Hidden</h5>
+<div [hidden]="!mostrarCursos" >
+    Lista de Cursos
+  </div>
+  <div [hidden]="mostrarCursos" >
+   Cursos não cadastrados
+  </div>
+  <h5>Removendo * e usando template</h5>
+<template [ngIf]="mostrarCursos">
+    <div>Lisa de cursos</div>
+</template>
+
+<div template="ngIf  mostrarCursos">Lista de cursos</div>

@@ -1,0 +1,28 @@
+http://localhost:3000/dados
+
+
+###
+
+http://localhost:3000/dados/1
+
+###
+
+PUT http://localhost:3000/dados/5 HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "JavaScript"
+}
+
+###
+
+POST http://localhost:3000/dados HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Java 8"
+}
+
+###
+
+DELETE http://localhost:3000/dados/6

@@ -1,0 +1,122 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="painel-title">Lista de Produtos</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped table-condensed table-hover table-bordered" id="myTable">
+      <thead>
+        <tr>
+          <th width="100">Cod</th>
+          <th width="600">Descrição</th>
+          <th width="50">Unidade</th>
+          <th>Preço</th>
+          <th width="95">
+            <button class="btn btn-success mesmo-tamanho" (click)="lgModal.show();validarCampo()">
+              <span class=" glyphicon glyphicon-plus"></span>
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dado of dados; let i = index" class="warning">
+          <td>{{ dado.id }}</td>
+          <td>{{ dado.descricao }}</td>
+          <td>{{ dado.unidade }}</td>
+          <td>{{ dado.preco }}</td>
+          <td>
+            <button class="btn btn-primary btn-edit" (click)="pegarDados(i);modalEdit.show()">
+              <span class=" glyphicon glyphicon-pencil"></span>
+            </button>
+            <button class="btn btn-danger" (click)="deleteFieldValue(dado.id)" id="danger">
+              <i class="glyphicon glyphicon-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!--Modal-->
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"> 
+        <h4 class="modal-title pull-left" id="dialog-sizes-name1">Cadastrar Produto</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>Descrição</h4>
+        <div [class.has-error]="aplicarCss && !desc.valid && desc.touched">
+            <input class="form-control" type="text" id="newAttributeDesc" [(ngModel)]="controlDados.desc" name="newAttributeDesc" placeholder="Descrição"
+            required #desc="ngModel" />
+          <div *ngIf="aplicarCss && !desc.valid && desc.touched" class="alert alert-danger" role="alert">
+            É obrigatório informar a Descrição do Produto
+          </div>
+        </div>
+       
+        <h4>Unidade De Medida</h4>
+        <div class="row">
+          <div class="col-sm-3" [class.has-error]="aplicarCss && !uni.valid && uni.touched">
+            <select [(ngModel)]="controlDados.uni" class="form-control" id="uni" required #uni="ngModel">
+              <option>Uni</option>
+              <option>Kg</option>
+              <option>Gr</option>
+            </select>
+            <div *ngIf="aplicarCss && !uni.valid && uni.touched" class="alert alert-danger" role="alert">
+                É obrigatório informar a Unidade do Produto
+            </div>
+          </div>
+         
+        </div>
+        <div [class.has-error]="aplicarCss && !prec.valid && prec.touched">
+            <h4>Preço</h4>
+            <input type="text" id="prec" name="prec" required class="form-control" [(ngModel)]="controlDados.prec" placeholder="Preço"
+            required #prec="ngModel">  
+            <div *ngIf="aplicarCss && !prec.valid && prec.touched" class="alert alert-danger" role="alert">
+                É obrigatório informar o Preço do Produto
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="validarCampos(prec);lgModal.hide()" id="cancel" data-dismiss="modal">Cancelar</button>
+
+        <button type="button" id="salvar" class="btn btn-primary" [disabled]="!desc.valid || !uni.valid || !prec.valid" (click)="addFieldValue(); lgModal.hide()">Salvar Produto</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--MODAL.2-->
+<div bsModal #modalEdit="bs-modal" class="modal fade" id="modalEdit">
+  <div class="modal-dialog modal-lg ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Editar Produto</h4>
+      </div>
+      <div class="modal-body">
+        <h4>Descrição</h4>
+        <input type="text" id="inputDescEdit" class="form-control" [(ngModel)]="controlDados.desc" placeholder="Descrição" required>
+        <h4>Unidade De Medida</h4>
+        <div class="row">
+          <div class="col-sm-3">
+            <select [(ngModel)]="controlDados.uni" class="form-control" id="uniEdit">
+              <option>Uni</option>
+              <option>Kg</option>
+              <option>Gr</option>
+            </select>
+          </div>
+        </div>
+        <h4>Preço</h4>
+        <input type="text" [(ngModel)]="controlDados.prec" id="inputPrecoEdit" class="form-control" placeholder="Preço" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="modalEdit.hide();limparDados()">Cancelar</button>
+        <button type="button" id="salvarEdit" (click)="salvarDados();modalEdit.hide()" class="btn btn-primary">Salvar Produto</button>
+      </div>
+    </div>
+  </div>
+</div>

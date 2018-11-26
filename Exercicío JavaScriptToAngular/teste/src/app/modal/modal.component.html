@@ -1,0 +1,17 @@
+<button class="btn btn-primary" (click)="open(myModal)"> Teste</button>
+<ng-template #content let-c="close" let-d="dismiss">
+  <button class="btn btn-primary"> Teste</button>
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg ">
+      <div class="modal-content">
+        
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+
+<hr>
+
+<pre>{{closeResult}}</pre>

@@ -1,0 +1,26 @@
+div#myNavbar{
+	background-color: black;
+}
+.mesmo-tamanho {
+	width: 100%;	
+	white-space: normal;
+}
+footer#rodape{
+
+	clear: both;
+	border-top:1px solid #606060;	
+
+}	
+footer#rodape p {
+		margin: 50px;
+		text-align: center;
+	
+}	
+.table .btn{
+	float: rigth;
+	
+}
+div.container{
+	height: 620px;
+}
+

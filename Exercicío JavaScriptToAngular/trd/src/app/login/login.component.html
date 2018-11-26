@@ -1,0 +1,23 @@
+<body>
+  <div class="container-fluid">
+    <form class="col-lg-6 col-lg-offset-2 my_form">
+      <h2 class="text-center">Login Usuario</h2>
+      <label for="inputLogin" class="sr-only">Login</label>
+      <input [(ngModel)]="usuario.nome" name="inputLogin" type="text" id="inputLogin" 
+      class="form-control" placeholder="Nome de Usuario" required>
+      
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input [(ngModel)]="usuario.senha" name="inputPassword"type="password" 
+      id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me">Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block btn-login"
+       (click)="fazerLogin()"type="submit">Sign in
+      </button>
+    </form>
+  </div>
+</body>
+

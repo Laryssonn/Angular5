@@ -1,0 +1,40 @@
+{
+  "dados": [
+    {
+      "descricao": "Manga ",
+      "unidade": "Kg",
+      "preco": "5,50",
+      "id": 1
+    },
+    {
+      "descricao": "Laranja",
+      "unidade": "Kg",
+      "preco": "1,90",
+      "id": 2
+    },
+    {
+      "descricao": "Café",
+      "unidade": "Gr",
+      "preco": "5,50",
+      "id": 3
+    },
+    {
+      "descricao": "Abacaxi",
+      "unidade": "Uni",
+      "preco": "9,00",
+      "id": 5
+    },
+    {
+      "descricao": "Limão",
+      "unidade": "Kg",
+      "preco": "1,30",
+      "id": 6
+    },
+    {
+      "descricao": "Tomate",
+      "unidade": "Kg",
+      "preco": "5,00",
+      "id": 7
+    }
+  ]
+}

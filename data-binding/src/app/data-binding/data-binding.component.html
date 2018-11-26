@@ -1,0 +1,133 @@
+<section class="input-outout-properties">
+  <article>
+    <h3>Input/Output Properties</h3>
+    <app-curso [nome]="nomeDoCurso"></app-curso>
+
+    <contador [valor]="valorInicial"
+    (mudouValor)="onMudouValor($event)"
+    ></contador>
+
+
+  </article> 
+</section>  
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<section class="two-way-binding">
+  <article>
+    <h3>Two-way data binding</h3>
+    <div>
+      <input type="text"
+        [value]="nome"  
+        (input)="nome = $event.target.value"
+        />
+
+        <input type="text"
+          [ngModel]="nome"  
+          (ngModelChange)="nome = $event"
+        />
+
+        <input type="text"[(ngModel)]="nome"/>
+      <p>Você Digitou: {{ nome }}</p>
+    </div>
+    <div>
+      <input type="text" [(ngModel)]="pessoa.nome">
+      <input type="text" [(ngModel)]="pessoa.idade">
+      <p>Nome: {{ pessoa.nome }}</p>
+      <p>Idade: {{ pessoa.idade }}</p>
+    </div>
+  </article>
+
+</section>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<section class="event-binding">
+  <article >
+    <h3>Event Binding</h3>
+    <div>
+      <button (click)="botaoClicado()" class="btn btn-primary">
+        Click me
+      </button>   
+      <br><br>
+      <input type="text"(keyup)="onKeyUp($event)"
+      (keyup.enter)="salvarValor(campoInput.value)"
+      (blur)="salvarValor(campoInput.value)"
+      #campoInput/> 
+      <p>Valor atual: {{ valorAtual }}</p>
+      <p>Valor salvo: {{ valorSalvo }}</p>
+      <span
+      (mouseover)="onMouse()"
+      (mouseout)="onMouse()"
+      [class.highlight]="isMouseOver">
+        Passe o mouse
+      </span>
+
+    </div>
+  </article>
+</section>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<section class="property-binding">
+  
+  <article>
+    <h3>Intepolation/Interpolação</h3>   
+    <p>String renderizada  com interpolação: {{ url }}</p>
+    <p>Resultado de 1 + 3 é: {{ 1 + 3 }}</p>
+    <p>Resultado de 1 + 1 não é: {{ 1 + 1 + getValor() }}</p>
+    <p>Curso Angular e like Curso: {{ cursoAngular && getCurso() }}</p>
+  </article>
+  <article> 
+    <h2>Property Imagem</h2>
+   <img [src]=" urlImagem  ">
+   <img src="{{ urlImagem }}"><br/>
+   <img bind-src=" urlImagem  ">
+
+  </article>
+  <article>
+    <h3>Class e Style Binding </h3>
+    <div>
+      Selecione uma classe
+      <select #classe (change)="0">
+          <option value="alert-success">Success</option>
+        <option value="alert-primary">Primary</option>
+        <option value="alert-secondary">Secondary</option>
+        <option value="alert-danger">Danger</option>
+        <option value="alert-warning">Warning</option>
+        <option value="alert-info">Info</option>
+        <option value="alert-light">Light</option>
+        <option value="alert-dark">Dark</option>
+      </select>
+      <br><br>
+      <div class="alert {{ classe.value }}">
+        Texto colorido conforme o valor do Combobox
+      </div>   
+
+      <div class="alert" role="alert"[class.alert-success]="classe.value =='alert-success'">Success</div>
+      <div class="alert" role="alert"[class.alert-primary]="classe.value =='alert-primary'">Primary</div>
+      <div class="alert" role="alert"[class.alert-secondary]="classe.value =='alert-secondary'"> Secondary</div>
+      <div class="alert" role="alert"[class.alert-danger]="classe.value =='alert-danger'">Danger</div>
+      <div class="alert" role="alert"[class.alert-warning]="classe.value =='alert-warning'">Warning</div>
+      <div class="alert" role="alert"[class.alert-info]="classe.value =='alert-info'">Info</div>
+      <div class="alert" role="alert"[class.alert-light]="classe.value =='alert-light'">Light</div>
+      <div class="alert" role="alert"[class.alert-dark]="classe.value =='alert-dark'">Dark</div>
+
+      <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+        Esse texto só vai aparecer quando ouver um erro 
+      </div>
+    </div>
+  </article>
+</section>
